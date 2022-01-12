@@ -1,3 +1,3 @@
 export const apiConfig = {
-    baseUrl: 'https://randomuser.me/'
+    baseUrl: 'https://randomuser.me/api/'
 };
