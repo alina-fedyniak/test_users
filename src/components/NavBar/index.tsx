@@ -1,32 +1,26 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import styles from './NavBar.module.scss';
 
 export function NavBar(): JSX.Element {
-
     return (
-        <nav className="navBar">
+        <div className={styles.navBar}>
             <h2>
-                <NavLink className="link" to="/">
+                <NavLink className={styles.navBar__link} to="/">
                     Home
                 </NavLink>
             </h2>
-            <ul className="menu">
-                <li>
-                    <NavLink className="link" to="/users">
-                        users
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink className="link" to="/userInfo">
-                        userInfo
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink className="link" to="/logOut">
-                        logOut
-                    </NavLink>
-                </li>
-            </ul>
-        </nav>
+            <div className={styles.navList}>
+                <NavLink className={styles.navList__link} to="/users">
+                    users
+                </NavLink>
+                <NavLink className={styles.navList__link} to="/userInfo">
+                    userInfo
+                </NavLink>
+                <NavLink className={styles.navList__link} to="/logOut">
+                    logOut
+                </NavLink>
+            </div>
+        </div>
     );
 }

@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-//import { Provider } from 'react-redux';
-//import store from './redux/store';
 import { Header } from './components/Header';
-import { navConfig } from './utils/constants';
 import { I18nProvider, LOCALES } from './lang';
 import { NavBar } from './components/NavBar';
 import { Users } from './components/Users';
@@ -12,7 +9,6 @@ import { UserInfo } from './components/UserInfo';
 
 function App(): JSX.Element {
     const [locale, setLocale] = useState(LOCALES.ENGLISH);
-    //const { home, users, logOut, userInfo } = navConfig;
 
     useEffect(() => {
         const lang = localStorage.getItem('locale');

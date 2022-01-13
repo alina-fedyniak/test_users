@@ -3,23 +3,9 @@
 .header {
     background-color: $component-bcg-color;
 
-    &__wrapper {
-        display: flex;
-        justify-content: space-between;
-        padding: 8px 0;
-    }
-
     &__infoWrapper {
         display: flex;
-        justify-content: space-between;
-        width: 250px;
-        height: 100%;
-        transition: background-color $transition-duration $timing-function;
-        border-radius: 35px;
-    }
-
-    &__infoWrapper:hover {
-        background-color: rgb(220, 220, 220);
+        justify-content: end;
     }
 
     &__langBox {
@@ -28,10 +14,11 @@
 
     &__langBtn {
         margin: 0;
-        padding: 0;
+        padding: 0 2px;
 
         background-color: transparent;
         cursor: default;
+        border: none;
     }
 
     &__langBtn:hover,
