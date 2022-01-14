@@ -12,6 +12,13 @@
         width: 80px;
     }
 
+    &__wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+    }
+
     &__langBtn {
         margin: 0;
         padding: 0 2px;

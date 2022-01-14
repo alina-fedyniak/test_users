@@ -7,7 +7,6 @@ export function NavBar(): JSX.Element {
         <div className={styles.navBar}>
             <h2>
                 <NavLink className={styles.navBar__link} to="/">
-                    Home
                 </NavLink>
             </h2>
             <div className={styles.navList}>

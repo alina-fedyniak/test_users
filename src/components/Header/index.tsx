@@ -1,7 +1,8 @@
 import { Container } from '../Container';
 import { LOCALES } from '../../lang';
-import { ReactComponent as Rus } from '../../lang/icons/ru.svg';
-import { ReactComponent as Eng } from '../../lang/icons/gb.svg';
+import { ReactComponent as Rus } from '../../images/icons/ru.svg';
+import { ReactComponent as Eng } from '../../images/icons/gb.svg';
+import { ReactComponent as Logo } from '../../images/logo.svg';
 import styles from './Header.module.scss';
 
 interface IProps {
@@ -13,6 +14,7 @@ export function Header({ onChangeLanguage }: IProps): JSX.Element {
         <header className={styles.header}>
             <Container>
                 <div className={styles.header__wrapper}>
+                    <Logo />
                     <div className={styles.header__infoWrapper}>
                         <div className={styles.header__langBox}>
                             <button
