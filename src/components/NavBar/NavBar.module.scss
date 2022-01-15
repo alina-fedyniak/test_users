@@ -1,9 +1,8 @@
-@import '../../styles/variables.scss';
+@import '../../assets/styles/variables';
 
 .navBar {
     display: flex;
     align-items: center;
-    background: $page-bcg-color;
 
     &__link {
       text-decoration: none;

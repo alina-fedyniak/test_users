@@ -5,16 +5,16 @@
     font-size: normal;
     font-weight: 500;
     font-display: swap;
-    src: url('../utils/fonts/gilroy-regular.eot'); /* IE 9 Compatibility Mode */
-    src: url('../utils/fonts/gilroy-regular.eot?#iefix')
+    src: url('../../assets/fonts/gilroy-regular.eot'); /* IE 9 Compatibility Mode */
+    src: url('../../assets/fonts/gilroy-regular.eot?#iefix')
             format('embedded-opentype'),
-        /* IE < 9 */ url('../utils/fonts/gilroy-regular.woff2') format('woff2'),
-        /* Super Modern Browsers */ url('../utils/fonts/gilroy-regular.woff')
+        /* IE < 9 */ url('../../assets/fonts/gilroy-regular.woff2') format('woff2'),
+        /* Super Modern Browsers */ url('../../assets/fonts/gilroy-regular.woff')
             format('woff'),
         /* Firefox >= 3.6, any other modern browser */
-            url('../utils/fonts/gilroy-regular.ttf') format('truetype'),
+            url('../../assets/fonts/gilroy-regular.ttf') format('truetype'),
         /* Safari, Android, iOS */
-            url('../utils/fonts/gilroy-regular.svg#gilroy-regular')
+            url('../../assets/fonts/gilroy-regular.svg#gilroy-regular')
             format('svg'); /* Chrome < 4, Legacy iOS */
 }
 

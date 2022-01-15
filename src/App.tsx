@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { Header } from './components/Header';
 import { I18nProvider, LOCALES } from './lang';
-import { NavBar } from './components/NavBar';
 import { Users } from './components/Users';
 import { LogOut } from './components/LogOut';
 import { UserInfo } from './components/UserInfo';
+import HomePage from "./pages/HomePage";
 
 function App(): JSX.Element {
     const [locale, setLocale] = useState(LOCALES.ENGLISH);
@@ -26,14 +26,12 @@ function App(): JSX.Element {
     return (
         <I18nProvider locale={locale}>
             <Header onChangeLanguage={changeLanguage} />
-            <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<NavBar />} />
+                    <Route path="/" element={<HomePage />} />
                     <Route path="/users" element={<Users />} />
                     <Route path="/userInfo" element={<UserInfo />} />
                     <Route path="/logOut" element={<LogOut />} />
                 </Routes>
-            </BrowserRouter>
         </I18nProvider>
     );
 }
