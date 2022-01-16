@@ -1,5 +1,4 @@
 import React from 'react';
-import './LogOut.module.scss';
 import styles from './LogOut.module.scss';
 
 export function LogOut(): JSX.Element {

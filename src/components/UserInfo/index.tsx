@@ -1,5 +1,4 @@
 import React from 'react';
-import './UserInfo.module.scss';
 import styles from './UserInfo.module.scss';
 
 export function UserInfo(): JSX.Element {
