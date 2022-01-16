@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Header } from './components/Header';
 import { I18nProvider, LOCALES } from './lang';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 import { Users } from './components/Users';
 import { LogOut } from './components/LogOut';
 import { UserInfo } from './components/UserInfo';
@@ -25,6 +27,7 @@ function App(): JSX.Element {
 
     return (
         <I18nProvider locale={locale}>
+            <Provider store={store}>
             <Header onChangeLanguage={changeLanguage} />
                 <Routes>
                     <Route path="/" element={<HomePage />} />
@@ -32,6 +35,7 @@ function App(): JSX.Element {
                     <Route path="/userInfo" element={<UserInfo />} />
                     <Route path="/logOut" element={<LogOut />} />
                 </Routes>
+            </Provider>
         </I18nProvider>
     );
 }
