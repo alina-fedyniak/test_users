@@ -4,7 +4,7 @@ import { Header } from './components/Header';
 import { I18nProvider, LOCALES } from './lang';
 import { Provider } from 'react-redux';
 import store from './redux/store';
-import { Users } from './components/Users';
+import { User } from './components/User';
 import { LogOut } from './components/LogOut';
 import { UserInfo } from './components/UserInfo';
 import HomePage from "./pages/HomePage";
@@ -31,7 +31,7 @@ function App(): JSX.Element {
             <Header onChangeLanguage={changeLanguage} />
                 <Routes>
                     <Route path="/" element={<HomePage />} />
-                    <Route path="/users" element={<Users />} />
+                    <Route path="/users" element={<User />} />
                     <Route path="/userInfo" element={<UserInfo />} />
                     <Route path="/logOut" element={<LogOut />} />
                 </Routes>

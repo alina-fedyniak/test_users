@@ -1,6 +1,6 @@
 import Axios from 'axios';
 import { apiConfig } from './apiConfig';
-import { User } from '../types'
+import { User } from '../types';
 
 Axios.defaults.baseURL = apiConfig.baseUrl;
 
@@ -13,5 +13,5 @@ async function fetchUsers(): Promise<User[]> {
 }
 
 export const userApi = {
-    fetchUsers
+    fetchUsers,
 };
