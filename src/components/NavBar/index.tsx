@@ -9,7 +9,9 @@ export function NavBar(): JSX.Element {
             <Container>
                 <div className={styles.navList}>
                     <NavLink className={styles.navList__link} to="/users">
-                        users
+                        user
+                    </NavLink><NavLink className={styles.navList__link} to="/users-page">
+                        users-page
                     </NavLink>
                     <NavLink className={styles.navList__link} to="/userInfo">
                         userInfo
