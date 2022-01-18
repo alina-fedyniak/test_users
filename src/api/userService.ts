@@ -6,10 +6,9 @@ Axios.defaults.baseURL = apiConfig.baseUrl;
 
 async function fetchUsers(): Promise<User[]> {
     const response = await Axios.get('/?results=20&inc=id,name,picture,dob,gender,location,phone,registered/');
-    console.log(response.data);
-    const { data }: { data: User[] } = response.data;
-
-    return data;
+    const { results } = response.data;
+    console.log(results);
+    return results;
 }
 
 export const userApi = {

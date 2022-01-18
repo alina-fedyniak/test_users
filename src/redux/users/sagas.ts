@@ -7,7 +7,7 @@ import {
     fetchUsersError,
 } from './actions';
 
-interface IUpdateDriver {
+interface UpdateUser {
     id: number;
     info: Record<string, InfoUpdate>;
 }

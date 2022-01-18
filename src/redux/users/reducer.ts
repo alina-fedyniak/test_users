@@ -1,15 +1,15 @@
 import * as Type from './types';
 import { Status, User, Action } from '../../interfaces';
 
-interface DriversState {
-    drivers: User[];
+interface UsersState {
+    users: User[];
     statuses: Status[];
     isLoading: boolean;
     error: Error | null | string;
 }
 
-const initialState: DriversState = {
-    drivers: [],
+const initialState: UsersState = {
+    users: [],
     statuses: [],
     isLoading: false,
     error: null,
@@ -19,9 +19,9 @@ type Sort = (a: User, b: User) => number;
 type Reducer = User & User[] & Status[] & Error & number & Sort;
 
 export const usersReducer = <T extends Reducer>(
-    state: DriversState,
+    state: UsersState,
     action: Action<T>,
-): DriversState => {
+): UsersState => {
     state = state || initialState;
 
     switch (action.type) {
@@ -35,7 +35,7 @@ export const usersReducer = <T extends Reducer>(
         case Type.FETCH_USERS_SUCCESS:
             return {
                 ...state,
-                drivers: action.payload,
+                users: action.payload,
                 isLoading: false,
                 error: null,
             };

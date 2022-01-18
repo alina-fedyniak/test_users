@@ -4,11 +4,11 @@ interface Status {
 }
 
 interface User {
-    id: number;
-    first_name: string;
+    id: string;
+    gender: string;
     last_name: string;
     date_created: number;
-    date_birth: number;
+    date_birth: string;
     status: Status;
 }
 
