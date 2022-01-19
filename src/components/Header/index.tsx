@@ -17,7 +17,7 @@ export function Header({ onChangeLanguage }: IProps): JSX.Element {
             <Container>
                 <div className={styles.header__wrapper}>
                     <NavLink to="/">
-                        <Logo />
+                        <Logo className={styles.header__logo} />
                     </NavLink>
                     <NavBar />
                     <div className={styles.header__infoWrapper}>

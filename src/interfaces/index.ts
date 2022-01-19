@@ -1,21 +1,27 @@
-interface Status {
-    title: string;
-    code: string;
-}
-
 interface User {
-    id: string;
+    dob: {
+        date: string;
+    };
     gender: string;
-    last_name: string;
-    date_created: number;
-    date_birth: string;
-    status: Status;
+    id: {};
+    location: {
+        city: string;
+        };
+    name: {
+        first: string;
+        last: string;
+    };
+    phone: string;
+    picture: {
+        large: string;
+        medium: string;
+        thumbnail: string;
+    };
 }
 
 interface State {
     usersReducer: {
         users: User[];
-        statuses: Status[];
         isLoading: boolean;
     };
 }
@@ -25,6 +31,4 @@ interface Action<P> {
     payload: P;
 }
 
-type InfoUpdate = string | number | Status;
-
-export type { Status, User, Action, InfoUpdate, State };
+export type { User, Action, State };

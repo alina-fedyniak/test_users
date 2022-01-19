@@ -32,7 +32,7 @@ function App(): JSX.Element {
             <Header onChangeLanguage={changeLanguage} />
                 <Routes>
                     <Route path="/" element={<HomePage />} />
-                    <Route path="/users" element={<User />} />
+                    {/*<Route path="/users" element={<User />} />*/}
                     <Route path="/users-page" element={<UsersPage />} />
                     <Route path="/userInfo" element={<UserInfo />} />
                     <Route path="/logOut" element={<LogOut />} />

@@ -1,16 +1,11 @@
 import { call, put, takeLatest } from '@redux-saga/core/effects';
 import { userApi } from '../../api/userService';
-import { Status, User, Action, InfoUpdate } from '../../interfaces';
+import { User, Action } from '../../interfaces';
 import { FETCH_USERS_REQUEST } from './types';
 import {
     fetchUsersSuccess,
     fetchUsersError,
 } from './actions';
-
-interface UpdateUser {
-    id: number;
-    info: Record<string, InfoUpdate>;
-}
 
 function* fetchUsersSaga(): Generator {
     try {

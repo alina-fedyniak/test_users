@@ -1,22 +1,20 @@
 import * as Type from './types';
-import { Status, User, Action } from '../../interfaces';
+import { User, Action } from '../../interfaces';
 
 interface UsersState {
     users: User[];
-    statuses: Status[];
     isLoading: boolean;
     error: Error | null | string;
 }
 
 const initialState: UsersState = {
     users: [],
-    statuses: [],
     isLoading: false,
     error: null,
 };
 
 type Sort = (a: User, b: User) => number;
-type Reducer = User & User[] & Status[] & Error & number & Sort;
+type Reducer = User & User[] & Error & number & Sort;
 
 export const usersReducer = <T extends Reducer>(
     state: UsersState,

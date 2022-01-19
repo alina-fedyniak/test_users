@@ -1,4 +1,4 @@
-import { User, Status, State } from '../../interfaces';
+import { User, State } from '../../interfaces';
 
 const usersSelector = (state: State): User[] =>
     state.usersReducer.users;

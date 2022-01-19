@@ -1,16 +1,25 @@
 import React from 'react';
 import styles from './UserCard.module.scss';
+import { User as UserType } from "../../interfaces";
 
-export function User(): JSX.Element {
+export function User( { user }: { user: UserType }): JSX.Element {
     return (
         <div className={styles.user}>
             <div className={styles.user__block}>
                 <div className={styles.user__avatar}>
-                    avatar
+                    <img src={user.picture.medium} alt="avatar" />
                 </div>
-                <p>Имя и фамилия</p>
-                <p>Дата рождения</p>
-                <p>Пол</p>
+                <div className={styles.user__info}>
+                    <div className={styles.user__name}>
+                        {user.name.first + ' ' + user.name.last}
+                    </div>
+                    <div className={styles.user__date}>
+                        {user.dob.date}
+                    </div>
+                    <div className={styles.user__gender}>
+                        {user.gender}
+                    </div>
+                </div>
             </div>
         </div>
     );
