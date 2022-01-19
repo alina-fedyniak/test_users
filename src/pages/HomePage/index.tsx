@@ -1,10 +1,13 @@
 import styles from './HomePage.module.scss';
-import {LogIn} from '../../components/Forms/LogInForm';
+import { LogIn } from '../../components/LogIn';
+import { NavLink } from 'react-router-dom';
 
 function HomePage (): JSX.Element {
     return (
         <div className={styles.homePage}>
-            <LogIn />
+            <NavLink to="/users-page">
+                <LogIn />
+            </NavLink>
         </div>
     );
 }

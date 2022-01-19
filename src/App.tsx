@@ -4,9 +4,7 @@ import { Header } from './components/Header';
 import { I18nProvider, LOCALES } from './lang';
 import { Provider } from 'react-redux';
 import store from './redux/store';
-import { User } from './components/User';
 import  UsersPage  from './pages/UsersPage';
-import { LogOut } from './components/LogOut';
 import { UserInfo } from './components/UserInfo';
 import HomePage from "./pages/HomePage";
 
@@ -32,10 +30,9 @@ function App(): JSX.Element {
             <Header onChangeLanguage={changeLanguage} />
                 <Routes>
                     <Route path="/" element={<HomePage />} />
-                    {/*<Route path="/users" element={<User />} />*/}
                     <Route path="/users-page" element={<UsersPage />} />
                     <Route path="/userInfo" element={<UserInfo />} />
-                    <Route path="/logOut" element={<LogOut />} />
+                    <Route path="/logOut" element={<HomePage />} />
                 </Routes>
             </Provider>
         </I18nProvider>

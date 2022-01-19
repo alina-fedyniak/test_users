@@ -42,20 +42,6 @@ h3 {
     margin: 0;
 }
 
-button {
-    width: 147px;
-    height: 40px;
-    margin: 16px;
-
-    color: $btn-text-color;
-
-    border: none;
-    border-radius: 8px;
-    background-color: $btn-bg-color;
-    transition: box-shadow $transition-duration $timing-function;
-    cursor: pointer;
-}
-
 button:hover,
 button:focus {
     -webkit-box-shadow: 0 16px 20px 5px rgba(34, 60, 80, 0.2);
