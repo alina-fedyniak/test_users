@@ -11,6 +11,9 @@ interface User {
         first: string;
         last: string;
     };
+    registered: {
+        date: string;
+    };
     phone: string;
     picture: {
         large: string;

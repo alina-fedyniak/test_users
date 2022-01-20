@@ -5,7 +5,7 @@ import { I18nProvider, LOCALES } from './lang';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import  UsersPage  from './pages/UsersPage';
-import { UserInfo } from './components/UserInfo';
+import { UserInfoPage } from './pages/UserInfoPage';
 import HomePage from "./pages/HomePage";
 
 function App(): JSX.Element {
@@ -31,7 +31,7 @@ function App(): JSX.Element {
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/users-page" element={<UsersPage />} />
-                    <Route path="/userInfo" element={<UserInfo />} />
+                    <Route path="/userInfo" element={<UserInfoPage />} />
                     <Route path="/logOut" element={<HomePage />} />
                 </Routes>
             </Provider>

@@ -1,9 +1,17 @@
-import styles from './UserInfoPage.module.scss';
+import { useLocation } from 'react-router-dom';
+import { UserInfo } from '../../components/UserInfo';
+import { User as UserType } from '../../interfaces';
+import styles from '../UserInfoPage/UserInfoPage.module.scss';
 
-function UserInfoPage (): JSX.Element {
-    return (
-        <div className={styles.userInfoPage}></div>
+export function UserInfoPage(): JSX.Element {
+    const { state } = useLocation();
+    const stateUser = state as UserType;
+
+    return stateUser ? (
+        <UserInfo user={state as UserType} />
+    ) : (
+        <div className={styles.userInfoPage}>
+            Выберите пользователя чтобы увидеть его инфо
+        </div>
     );
 }
-
-export default UserInfoPage;
