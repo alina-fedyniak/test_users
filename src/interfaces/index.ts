@@ -1,18 +1,21 @@
 interface User {
+    registered: {
+        date: string;
+    };
     dob: {
         date: string;
     };
     gender: string;
-    id: {};
+    id: {
+        name: string;
+        value: string;
+    };
     location: {
         city: string;
         };
     name: {
         first: string;
         last: string;
-    };
-    registered: {
-        date: string;
     };
     phone: string;
     picture: {

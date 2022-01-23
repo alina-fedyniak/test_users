@@ -3,7 +3,6 @@ import styles from './UserInfo.module.scss';
 import { User as UserType } from '../../interfaces';
 
 export function UserInfo({ user }: { user: UserType }): JSX.Element {
-    console.log(user)
     return (
         <div className={styles.userInfo}>
             <div className={styles.card}>
@@ -29,7 +28,7 @@ export function UserInfo({ user }: { user: UserType }): JSX.Element {
                                 {user.phone}
                             </div>
                             <div className={styles.user__registered}>
-                                {user.registered}
+                                {user.registered.date}
                             </div>
                         </div>
                     </div>

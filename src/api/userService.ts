@@ -1,13 +1,12 @@
-import Axios from 'axios';
+import axios from 'axios';
 import { apiConfig } from './apiConfig';
-import { User } from '../types';
+import { User } from '../interfaces';
 
-Axios.defaults.baseURL = apiConfig.baseUrl;
+axios.defaults.baseURL = apiConfig.baseUrl;
 
 async function fetchUsers(): Promise<User[]> {
-    const response = await Axios.get('/?results=20&inc=id,name,picture,dob,gender,location,phone,registered/');
+    const response = await axios.get('/?results=20&inc=registered,id,name,picture,dob,gender,location,phone');
     const { results } = response.data;
-    console.log(results);
     return results;
 }
 

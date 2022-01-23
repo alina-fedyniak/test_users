@@ -10,7 +10,6 @@ import {
 function* fetchUsersSaga(): Generator {
     try {
         const users = (yield call(userApi.fetchUsers)) as User[];
-        console.log(users)
         yield put(fetchUsersSuccess(users));
     } catch (error) {
         yield put(fetchUsersError(error));
