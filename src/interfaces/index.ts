@@ -29,6 +29,7 @@ interface State {
     usersReducer: {
         users: User[];
         isLoading: boolean;
+        isLogin: boolean;
     };
 }
 

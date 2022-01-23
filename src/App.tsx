@@ -7,6 +7,7 @@ import store from './redux/store';
 import  UsersPage  from './pages/UsersPage';
 import { UserInfoPage } from './pages/UserInfoPage';
 import HomePage from "./pages/HomePage";
+import { LogOut } from "./components/LogOut";
 
 function App(): JSX.Element {
     const [locale, setLocale] = useState(LOCALES.ENGLISH);
@@ -31,8 +32,8 @@ function App(): JSX.Element {
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/users-page" element={<UsersPage />} />
-                    <Route path="/userInfo" element={<UserInfoPage />} />
-                    <Route path="/logOut" element={<HomePage />} />
+                    <Route path="/user-info" element={<UserInfoPage />} />
+                    <Route path="/log-out" element={<LogOut />} />
                 </Routes>
             </Provider>
         </I18nProvider>

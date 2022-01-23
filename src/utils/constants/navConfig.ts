@@ -9,10 +9,10 @@ export const navConfig = {
     },
     userInfo: {
         path: '/users/:userId',
-        label: 'userInfo',
+        label: 'user-info',
     },
     logOut: {
-        path: '/logOut',
-        label: 'logOut',
+        path: '/log-out',
+        label: 'log-out',
     },
 };

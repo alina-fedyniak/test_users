@@ -19,7 +19,6 @@ export function Header({ onChangeLanguage }: IProps): JSX.Element {
                     <NavLink to="/">
                         <Logo className={styles.header__logo} />
                     </NavLink>
-                    <NavBar />
                     <div className={styles.header__infoWrapper}>
                         <div className={styles.header__langBox}>
                             <button
@@ -44,6 +43,7 @@ export function Header({ onChangeLanguage }: IProps): JSX.Element {
                     </div>
                 </div>
             </Container>
+            <NavBar />
         </header>
     );
 }

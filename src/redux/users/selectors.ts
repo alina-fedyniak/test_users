@@ -3,4 +3,7 @@ import { User, State } from '../../interfaces';
 const usersSelector = (state: State): User[] =>
     state.usersReducer.users;
 
-export { usersSelector };
+const isLoginSelector = (state: State)  =>
+    state.usersReducer.isLogin;
+
+export { usersSelector, isLoginSelector };

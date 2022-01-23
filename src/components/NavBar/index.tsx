@@ -9,13 +9,13 @@ export function NavBar(): JSX.Element {
             <Container>
                 <div className={styles.navList}>
                     <NavLink className={styles.navList__link} to="/users-page">
-                        users
+                        Users
                     </NavLink>
-                    <NavLink className={styles.navList__link} to="/userInfo">
-                        userInfo
+                    <NavLink className={styles.navList__link} to="/user-info">
+                        User Info
                     </NavLink>
-                    <NavLink className={styles.navList__link} to="/logOut">
-                        logOut
+                    <NavLink className={styles.navList__link} to="/log-out">
+                        Log Out
                     </NavLink>
                 </div>
             </Container>

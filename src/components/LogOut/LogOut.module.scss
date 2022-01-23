@@ -1,1 +1,24 @@
+@import '../../assets/styles/variables';
 
+.logOut {
+    padding-top: 200px;
+    &__btn {
+        width: 200px;
+        height: 60px;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        color: $text-main-color;
+
+        border: none;
+        border-radius: 8px;
+
+        box-shadow: 0 0 20px 5px rgba(34, 60, 80, 0.2);
+        transition: box-shadow $transition-duration $timing-function;
+        cursor: pointer;
+      }
+}
