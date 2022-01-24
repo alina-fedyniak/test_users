@@ -6,4 +6,7 @@ const usersSelector = (state: State): User[] =>
 const isLoginSelector = (state: State)  =>
     state.usersReducer.isLogin;
 
-export { usersSelector, isLoginSelector };
+const loadingSelector = (state: State): boolean =>
+    state.usersReducer.isLoading;
+
+export { usersSelector, isLoginSelector, loadingSelector };

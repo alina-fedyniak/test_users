@@ -44,6 +44,7 @@ export const usersReducer = <T extends Reducer>(
             return {
                 ...state,
                 isLogin: true,
+                isLoading: true,
                 error: null,
             };
 
@@ -51,6 +52,7 @@ export const usersReducer = <T extends Reducer>(
             return {
                 ...state,
                 isLogin: false,
+                isLoading: true,
                 error: null,
             };
 

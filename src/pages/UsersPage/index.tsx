@@ -2,24 +2,28 @@ import styles from './UsersPage.module.scss';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchUsersRequest } from '../../redux/users/actions';
-import { usersSelector } from '../../redux/users/selectors';
+import { loadingSelector, usersSelector } from '../../redux/users/selectors';
 import { useSelector } from 'react-redux';
 import { User } from '../../components/User';
 import axios from 'axios';
+import { Spinner } from '../../components/Spinner';
 
 function UsersPage(): JSX.Element {
     const dispatch = useDispatch();
+    const isLoading = useSelector(loadingSelector);
     const usersData = useSelector(usersSelector);
 
     const [users, setUsers] = useState(usersData);
     const [currentPage, setCurrentPage] = useState(1);
     const [fetching, setFetching] = useState(true);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         if (fetching) {
+            setLoading(true);
             axios
                 .get(
-                    '/?results=10&inc=registered,id,name,picture,dob,gender,location,phone&page=' +
+                    '/?results=10&inc=registered,login,id,name,picture,dob,gender,location,phone&page=' +
                         currentPage,
                 )
                 .then((response: any) => {
@@ -27,7 +31,11 @@ function UsersPage(): JSX.Element {
                     setUsers([...users, ...response.data.results]);
                     setCurrentPage(prevState => prevState + 1);
                 })
-                .finally(() => setFetching(false));
+                .finally(() => {
+                    setFetching(false);
+                    setLoading(false);
+                }
+            )
         }
     });
 
@@ -54,9 +62,10 @@ function UsersPage(): JSX.Element {
 
     return (
         <div className={styles.usersPage}>
-            {users.map((user, key) => (
-                <User key={key} user={user} />
-            ))}
+            {users.map(user =>
+                <User key={user.login.uuid} user={user} />
+            )}
+           { loading && <Spinner />}
         </div>
     );
 }

@@ -1,13 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Header } from './components/Header';
 import { I18nProvider, LOCALES } from './lang';
 import { Provider } from 'react-redux';
 import store from './redux/store';
-import  UsersPage  from './pages/UsersPage';
 import { UserInfoPage } from './pages/UserInfoPage';
 import HomePage from "./pages/HomePage";
 import { LogOut } from "./components/LogOut";
+import { Spinner } from "./components/Spinner";
+
+const UsersPage = lazy(() => import('./pages/UsersPage'));
 
 function App(): JSX.Element {
     const [locale, setLocale] = useState(LOCALES.ENGLISH);
@@ -29,12 +31,14 @@ function App(): JSX.Element {
         <I18nProvider locale={locale}>
             <Provider store={store}>
             <Header onChangeLanguage={changeLanguage} />
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/users-page" element={<UsersPage />} />
-                    <Route path="/user-info" element={<UserInfoPage />} />
-                    <Route path="/log-out" element={<LogOut />} />
-                </Routes>
+            <Suspense fallback={<Spinner />}>
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/users-page" element={<UsersPage />} />
+                <Route path="/user-info" element={<UserInfoPage />} />
+                <Route path="/log-out" element={<LogOut />} />
+            </Routes>
+            </Suspense>
             </Provider>
         </I18nProvider>
     );

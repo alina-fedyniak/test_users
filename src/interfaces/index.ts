@@ -2,6 +2,9 @@ interface User {
     registered: {
         date: string;
     };
+    login: {
+        uuid: string;
+    };
     dob: {
         date: string;
     };
