@@ -38,14 +38,13 @@ function UsersPage(): JSX.Element {
         };
     }, []);
 
-    const scrollHandler = (e: any) => {
+    const scrollHandler = (event: any) => {
         if (
-            e.target.documentElement.scrollHeight -
-                (e.target.documentElement.scrollTop + window.innerHeight) <
-            100
+            event.target.documentElement.scrollHeight -
+                (event.target.documentElement.scrollTop + window.innerHeight) <
+            1
         ) {
             setFetching(true);
-            console.log('end');
         }
     };
 
