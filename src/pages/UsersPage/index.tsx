@@ -7,8 +7,6 @@ import { useSelector } from 'react-redux';
 import { User } from '../../components/User';
 import axios from 'axios';
 import { Spinner } from '../../components/Spinner';
-import { NavBar } from '../../components/NavBar';
-
 
 function UsersPage(): JSX.Element {
     const dispatch = useDispatch();
@@ -61,15 +59,12 @@ function UsersPage(): JSX.Element {
     }, [dispatch]);
 
     return (
-        <>
-            <NavBar />
-            <div className={styles.usersPage}>
-                {users.map(user => (
-                    <User key={user.login.uuid} user={user} />
-                ))}
-                {loading && <Spinner />}
-            </div>
-        </>
+        <div className={styles.usersPage}>
+            {users.map(user => (
+                <User key={user.login.uuid} user={user} />
+            ))}
+            {loading && <Spinner />}
+        </div>
     );
 }
 

@@ -2,6 +2,7 @@ import { Container } from '../Container';
 import { LOCALES } from '../../lang';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { NavBar } from '../NavBar';
 import { setLocale } from '../../redux/locale/actions';
 import { ReactComponent as Rus } from '../../assets/images/ru.svg';
 import { ReactComponent as Eng } from '../../assets/images/gb.svg';
@@ -42,6 +43,7 @@ export function Header(): JSX.Element {
                     </div>
                 </div>
             </Container>
+            <NavBar />
         </header>
     );
 }
