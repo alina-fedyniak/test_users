@@ -5,7 +5,6 @@ import { ReactComponent as Eng } from '../../assets/images/gb.svg';
 import { ReactComponent as Logo } from '../../assets/images/logo.svg';
 import styles from './Header.module.scss';
 import { NavLink } from 'react-router-dom';
-import { NavBar } from '../NavBar';
 
 interface IProps {
     onChangeLanguage: (language: string) => void;
@@ -43,7 +42,6 @@ export function Header({ onChangeLanguage }: IProps): JSX.Element {
                     </div>
                 </div>
             </Container>
-            <NavBar />
         </header>
     );
 }

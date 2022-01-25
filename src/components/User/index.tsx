@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 export function User({ user }: { user: UserType }): JSX.Element {
 
     return (
-        <NavLink to="/user-info" state={user}>
+        <NavLink className={styles.card__link} to="/user-info" state={user}>
             <div className={styles.card}>
                 <div className={styles[user.gender]}>
                     <div className={styles.user}>

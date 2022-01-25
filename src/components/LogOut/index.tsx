@@ -3,6 +3,7 @@ import styles from './LogOut.module.scss';
 import { useDispatch } from 'react-redux';
 import { fetchIsLogout } from '../../redux/users/actions';
 import { NavLink } from 'react-router-dom';
+import { NavBar } from '../NavBar';
 
 export function LogOut(): JSX.Element {
     const dispatch = useDispatch();
@@ -12,12 +13,15 @@ export function LogOut(): JSX.Element {
     };
 
     return (
-        <div className={styles.logOut}>
-            <NavLink to="/">
-                <div className={styles.logOut__btn} onClick={clickLogOut}>
-                    Log Out
-                </div>
-            </NavLink>
-        </div>
+        <>
+            <NavBar />
+            <div className={styles.logOut}>
+                <NavLink className={styles.logOut__link} to="/">
+                    <div className={styles.logOut__btn} onClick={clickLogOut}>
+                        Log Out
+                    </div>
+                </NavLink>
+            </div>
+        </>
     );
 }

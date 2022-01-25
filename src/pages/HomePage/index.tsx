@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 function HomePage (): JSX.Element {
     return (
         <div className={styles.homePage}>
-            <NavLink to="/users-page">
+            <NavLink className={styles.homePage__link} to="/users-page">
                 <LogIn />
             </NavLink>
         </div>

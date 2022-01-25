@@ -7,6 +7,8 @@ import { useSelector } from 'react-redux';
 import { User } from '../../components/User';
 import axios from 'axios';
 import { Spinner } from '../../components/Spinner';
+import { NavBar } from '../../components/NavBar';
+
 
 function UsersPage(): JSX.Element {
     const dispatch = useDispatch();
@@ -34,8 +36,7 @@ function UsersPage(): JSX.Element {
                 .finally(() => {
                     setFetching(false);
                     setLoading(false);
-                }
-            )
+                });
         }
     });
 
@@ -50,7 +51,7 @@ function UsersPage(): JSX.Element {
         if (
             event.target.documentElement.scrollHeight -
                 (event.target.documentElement.scrollTop + window.innerHeight) <
-            1
+            100
         ) {
             setFetching(true);
         }
@@ -61,12 +62,15 @@ function UsersPage(): JSX.Element {
     }, [dispatch]);
 
     return (
-        <div className={styles.usersPage}>
-            {users.map(user =>
-                <User key={user.login.uuid} user={user} />
-            )}
-           { loading && <Spinner />}
-        </div>
+        <>
+            <NavBar />
+            <div className={styles.usersPage}>
+                {users.map(user => (
+                    <User key={user.login.uuid} user={user} />
+                ))}
+                {loading && <Spinner />}
+            </div>
+        </>
     );
 }
 

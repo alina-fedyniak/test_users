@@ -21,4 +21,8 @@
         transition: box-shadow $transition-duration $timing-function;
         cursor: pointer;
       }
+
+    &__link {
+      text-decoration: none;
+    }
 }

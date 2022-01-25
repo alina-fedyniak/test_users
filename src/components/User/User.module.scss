@@ -20,6 +20,10 @@
 
 .card {
     width: 350px;
+
+    &__link {
+      text-decoration: none;
+    }
 }
 
 .user {
