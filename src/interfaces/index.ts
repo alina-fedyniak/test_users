@@ -34,6 +34,9 @@ interface State {
         isLoading: boolean;
         isLogin: boolean;
     };
+    localeReducer: {
+        lang: string;
+    };
 }
 
 interface Action<P> {

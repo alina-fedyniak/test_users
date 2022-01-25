@@ -1,45 +1,40 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Header } from './components/Header';
-import { I18nProvider, LOCALES } from './lang';
-import { Provider } from 'react-redux';
-import store from './redux/store';
+import { I18nProvider } from './lang';
 import { UserInfoPage } from './pages/UserInfoPage';
-import HomePage from "./pages/HomePage";
-import { LogOut } from "./components/LogOut";
-import { Spinner } from "./components/Spinner";
+import HomePage from './pages/HomePage';
+import { LogOut } from './components/LogOut';
+import { Spinner } from './components/Spinner';
+import { useDispatch, useSelector } from 'react-redux';
+import { langSelector } from './redux/locale/selectors';
+import { setLocale } from './redux/locale/actions';
 
 const UsersPage = lazy(() => import('./pages/UsersPage'));
 
 function App(): JSX.Element {
-    const [locale, setLocale] = useState(LOCALES.ENGLISH);
+    const dispatch = useDispatch();
+    const locale = useSelector(langSelector);
 
     useEffect(() => {
         const lang = localStorage.getItem('locale');
 
         if (lang) {
-            setLocale(lang);
+            dispatch(setLocale(lang));
         }
-    }, []);
-
-    const changeLanguage = (language: string) => {
-        setLocale(language);
-        localStorage.setItem('locale', language);
-    };
+    }, [dispatch]);
 
     return (
-        <I18nProvider locale={locale}>
-            <Provider store={store}>
-            <Header onChangeLanguage={changeLanguage} />
+        <I18nProvider locale={'ru'}>
+            <Header />
             <Suspense fallback={<Spinner />}>
-            <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/users-page" element={<UsersPage />} />
-                <Route path="/user-info" element={<UserInfoPage />} />
-                <Route path="/log-out" element={<LogOut />} />
-            </Routes>
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/users-page" element={<UsersPage />} />
+                    <Route path="/user-info" element={<UserInfoPage />} />
+                    <Route path="/log-out" element={<LogOut />} />
+                </Routes>
             </Suspense>
-            </Provider>
         </I18nProvider>
     );
 }

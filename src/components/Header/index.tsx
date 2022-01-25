@@ -1,16 +1,16 @@
 import { Container } from '../Container';
 import { LOCALES } from '../../lang';
+import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setLocale } from '../../redux/locale/actions';
 import { ReactComponent as Rus } from '../../assets/images/ru.svg';
 import { ReactComponent as Eng } from '../../assets/images/gb.svg';
 import { ReactComponent as Logo } from '../../assets/images/logo.svg';
 import styles from './Header.module.scss';
-import { NavLink } from 'react-router-dom';
 
-interface IProps {
-    onChangeLanguage: (language: string) => void;
-}
+export function Header(): JSX.Element {
+    const dispatch = useDispatch();
 
-export function Header({ onChangeLanguage }: IProps): JSX.Element {
     return (
         <header className={styles.header}>
             <Container>
@@ -24,7 +24,7 @@ export function Header({ onChangeLanguage }: IProps): JSX.Element {
                                 type="button"
                                 className={styles.header__langBtn}
                                 onClick={() =>
-                                    onChangeLanguage(LOCALES.ENGLISH)
+                                    dispatch(setLocale(LOCALES.ENGLISH))
                                 }
                             >
                                 <Eng width={24} />
@@ -33,7 +33,7 @@ export function Header({ onChangeLanguage }: IProps): JSX.Element {
                                 type="button"
                                 className={styles.header__langBtn}
                                 onClick={() =>
-                                    onChangeLanguage(LOCALES.RUSSIAN)
+                                    dispatch(setLocale(LOCALES.RUSSIAN))
                                 }
                             >
                                 <Rus width={24} />

@@ -29,7 +29,6 @@ function UsersPage(): JSX.Element {
                         currentPage,
                 )
                 .then((response: any) => {
-                    console.log(response.data.results);
                     setUsers([...users, ...response.data.results]);
                     setCurrentPage(prevState => prevState + 1);
                 })
