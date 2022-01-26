@@ -1,11 +1,11 @@
 import { Navigate } from 'react-router-dom';
-import { isLoginSelector} from '../redux/users/selectors';
+import { authSelector} from '../redux/auth/selectors';
 import { useSelector } from 'react-redux';
 
 export const RequireAuth = ({ children }: { children: JSX.Element }) => {
-    const isLogin = useSelector(isLoginSelector);
+    const auth = useSelector(authSelector);
 
-    if (!isLogin) {
+    if (!auth) {
         return <Navigate to="/" />
     }
     return children;

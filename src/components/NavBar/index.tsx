@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './NavBar.module.scss';
 import { Container } from '../Container';
+import { Translate } from '../../lang';
 
 export function NavBar(): JSX.Element {
     return (
@@ -9,13 +10,13 @@ export function NavBar(): JSX.Element {
             <Container>
                 <div className={styles.navList}>
                     <NavLink className={styles.navList__link} to="/users-page">
-                        Users
+                        {Translate('users')}
                     </NavLink>
                     <NavLink className={styles.navList__link} to="/user-info">
-                        User Info
+                        {Translate('userInfo')}
                     </NavLink>
                     <NavLink className={styles.navList__link} to="/log-out">
-                        Log Out
+                        {Translate('logOut')}
                     </NavLink>
                 </div>
             </Container>

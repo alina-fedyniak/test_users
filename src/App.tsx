@@ -26,7 +26,7 @@ function App(): JSX.Element {
     }, [dispatch]);
 
     return (
-        <I18nProvider locale={'ru'}>
+        <I18nProvider locale={locale}>
             <Header />
             <Suspense fallback={<Spinner />}>
                 <Routes>

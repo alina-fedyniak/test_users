@@ -1,2 +1,2 @@
 export { navConfig } from './navConfig';
-export { usersConfig } from './cartConfig';
+export { usersConfig } from './usersConfig';

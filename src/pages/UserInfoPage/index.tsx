@@ -2,6 +2,7 @@ import { useLocation } from 'react-router-dom';
 import { UserInfo } from '../../components/UserInfo';
 import { User as UserType } from '../../interfaces';
 import styles from '../UserInfoPage/UserInfoPage.module.scss';
+import { Translate } from '../../lang';
 
 export function UserInfoPage(): JSX.Element {
     const { state } = useLocation();
@@ -11,7 +12,7 @@ export function UserInfoPage(): JSX.Element {
         <UserInfo user={state as UserType} />
     ) : (
         <div className={styles.userInfoPage}>
-            Выберите пользователя чтобы увидеть его инфо
+            {Translate('userNotFound')}
         </div>
     );
 }
