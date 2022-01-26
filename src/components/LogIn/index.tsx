@@ -1,11 +1,9 @@
 import * as React from 'react';
 import styles from './LogIn.module.scss';
-import { isLoginSelector} from '../../redux/users/selectors';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchIsLogin } from '../../redux/users/actions';
 
 export const LogIn = () => {
-    const isLogin = useSelector(isLoginSelector);
     const dispatch = useDispatch();
 
     const clickLogIn = () => {

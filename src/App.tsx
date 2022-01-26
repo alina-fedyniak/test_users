@@ -9,6 +9,7 @@ import { Spinner } from './components/Spinner';
 import { useDispatch, useSelector } from 'react-redux';
 import { langSelector } from './redux/locale/selectors';
 import { setLocale } from './redux/locale/actions';
+import { RequireAuth } from './PrivateRoute/RequireAuth';
 
 const UsersPage = lazy(() => import('./pages/UsersPage'));
 
@@ -30,9 +31,30 @@ function App(): JSX.Element {
             <Suspense fallback={<Spinner />}>
                 <Routes>
                     <Route path="/" element={<HomePage />} />
-                    <Route path="/users-page" element={<UsersPage />} />
-                    <Route path="/user-info" element={<UserInfoPage />} />
-                    <Route path="/log-out" element={<LogOut />} />
+                    <Route
+                        path="/users-page"
+                        element={
+                            <RequireAuth>
+                                <UsersPage />
+                            </RequireAuth>
+                        }
+                    />
+                    <Route
+                        path="/user-info"
+                        element={
+                            <RequireAuth>
+                                <UserInfoPage />
+                            </RequireAuth>
+                        }
+                    />
+                    <Route
+                        path="/log-out"
+                        element={
+                            <RequireAuth>
+                                <LogOut />
+                            </RequireAuth>
+                        }
+                    />
                 </Routes>
             </Suspense>
         </I18nProvider>
