@@ -34,8 +34,15 @@ interface State {
         isLoading: boolean;
         isLogin: boolean;
     };
+
     localeReducer: {
         lang: string;
+    };
+
+    authReducer: {
+        isLoading: boolean;
+        isLogin: boolean;
+        error: null;
     };
 }
 

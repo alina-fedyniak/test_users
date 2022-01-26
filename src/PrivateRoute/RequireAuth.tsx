@@ -3,9 +3,10 @@ import { authSelector} from '../redux/auth/selectors';
 import { useSelector } from 'react-redux';
 
 export const RequireAuth = ({ children }: { children: JSX.Element }) => {
-    const auth = useSelector(authSelector);
+    const isAuth = useSelector(authSelector);
+    //const auth = localStorage.getItem('auth');
 
-    if (!auth) {
+    if (!isAuth) {
         return <Navigate to="/" />
     }
     return children;

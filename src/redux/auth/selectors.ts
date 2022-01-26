@@ -1,6 +1,6 @@
 import { State } from '../../interfaces';
 
 const authSelector = (state: State)  =>
-    state.usersReducer.isLogin;
+    state.authReducer.isLogin;
 
 export { authSelector };

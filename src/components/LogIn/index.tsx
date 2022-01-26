@@ -15,7 +15,7 @@ export const LogIn = () => {
         const auth = localStorage.getItem('auth');
 
         if (auth) {
-            dispatch(fetchUsersRequest(auth));
+            dispatch(fetchUsersRequest());
         }
     }, [dispatch]);
 
