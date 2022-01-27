@@ -5,12 +5,18 @@ import { FETCH_USERS_REQUEST } from './types';
 import {
     fetchUsersSuccess,
     fetchUsersError,
+    fetchMoreUsersSuccess,
 } from './actions';
 
-function* fetchUsersSaga(): Generator {
+function* fetchUsersSaga({ payload }: Action<any>): Generator {
     try {
         const users = (yield call(userApi.fetchUsers)) as User[];
-        yield put(fetchUsersSuccess(users));
+
+        if (payload) {
+            yield put(fetchMoreUsersSuccess(users));
+        } else {
+            yield put(fetchUsersSuccess(users));
+        }
     } catch (error) {
         yield put(fetchUsersError(error));
     }

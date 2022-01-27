@@ -13,8 +13,7 @@ const initialState: UsersState = {
     error: null,
 };
 
-type Sort = (a: User, b: User) => number;
-type Reducer = User & User[] & Error & number & Sort;
+type Reducer = User & User[] & Error & number;
 
 export const usersReducer = <T extends Reducer>(
     state: UsersState,
@@ -35,6 +34,13 @@ export const usersReducer = <T extends Reducer>(
                 ...state,
                 users: action.payload,
                 isLoading: false,
+                error: null,
+            };
+
+        case Type.FETCH_MORE_USERS_SUCCESS:
+            return {
+                ...state,
+                users: [...state.users, ...action.payload],
                 error: null,
             };
         default:

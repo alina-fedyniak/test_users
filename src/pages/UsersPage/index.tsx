@@ -7,18 +7,39 @@ import { useSelector } from 'react-redux';
 import { User } from '../../components/User';
 import axios from 'axios';
 import { Spinner } from '../../components/Spinner';
+import { useSearchParams } from 'react-router-dom';
 
 function UsersPage(): JSX.Element {
     const dispatch = useDispatch();
     const isLoading = useSelector(loadingSelector);
     const usersData = useSelector(usersSelector);
 
-    const [users, setUsers] = useState(usersData);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [fetching, setFetching] = useState(true);
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [fetching, setFetching] = useState(false);
     const [loading, setLoading] = useState(true);
 
+    /* const [users, setUsers] = useState(usersData);
+     const [currentPage, setCurrentPage] = useState(1);
+     const [fetching, setFetching] = useState(true);
+     */
+
     useEffect(() => {
+        if (usersData.length < 20) {
+            dispatch(fetchUsersRequest());
+        }
+
+        if (fetching) {
+            let page = Number(searchParams.get('page'));
+            page += 1;
+            setLoading(true);
+
+            dispatch(fetchUsersRequest({ page, results: 10 }));
+            setSearchParams(`page=${page}`);
+            setFetching(false);
+            setLoading(false);
+        }
+    }, [fetching, dispatch, searchParams, setSearchParams, usersData.length]);
+    /* useEffect(() => {
         if (fetching) {
             setLoading(true);
             axios
@@ -35,32 +56,34 @@ function UsersPage(): JSX.Element {
                     setLoading(false);
                 });
         }
-    });
+    });*/
 
     useEffect(() => {
         document.addEventListener('scroll', scrollHandler);
-        return function () {
+        return () => {
             document.removeEventListener('scroll', scrollHandler);
         };
     }, []);
 
-    const scrollHandler = (event: any) => {
+    const scrollHandler = (event: Event) => {
         if (
-            event.target.documentElement.scrollHeight -
-                (event.target.documentElement.scrollTop + window.innerHeight) <
-            100
+            (event.target as Document).documentElement.scrollHeight -
+            ((event.target as Document).documentElement.scrollTop + window.innerHeight) <
+            1
         ) {
             setFetching(true);
         }
     };
 
     useEffect(() => {
-        dispatch(fetchUsersRequest());
+        if (usersData.length < 20) {
+            dispatch(fetchUsersRequest());
+        }
     }, [dispatch]);
 
     return (
         <div className={styles.usersPage}>
-            {users.map(user => (
+            {usersData.map(user => (
                 <User key={user.login.uuid} user={user} />
             ))}
             {loading && <Spinner />}
