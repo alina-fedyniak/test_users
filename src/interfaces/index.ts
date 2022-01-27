@@ -1,4 +1,4 @@
-interface User {
+export interface User {
     registered: {
         date: string;
     };
@@ -28,7 +28,7 @@ interface User {
     };
 }
 
-interface State {
+export interface State {
     usersReducer: {
         users: User[];
         isLoading: boolean;
@@ -46,9 +46,7 @@ interface State {
     };
 }
 
-interface Action<P> {
+export interface Action<P> {
     type: string;
     payload: P;
 }
-
-export type { User, Action, State };

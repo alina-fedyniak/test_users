@@ -1,5 +1,5 @@
 import * as Type from './types';
-import { User, Action } from '../../interfaces';
+import { Action } from '../../interfaces';
 
 interface UsersState {
     isLoading: boolean;
@@ -19,7 +19,7 @@ export const authReducer = <T extends boolean>(
 ): UsersState => {
 
     switch (action.type) {
-        case Type.SET_AUTH:
+        case Type.SET_LOGIN:
             return {
                 ...state,
                 isLogin: action.payload,
@@ -27,13 +27,13 @@ export const authReducer = <T extends boolean>(
                 error: null,
             };
 
-        /*case Type.FETCH_IS_LOGOUT:
+        case Type.SET_LOGOUT:
             return {
                 ...state,
                 isLogin: false,
                 isLoading: true,
                 error: null,
-            };*/
+            };
 
         default:
             return state;
