@@ -5,7 +5,7 @@ import { FETCH_USERS_REQUEST } from './types';
 import {
     fetchUsersSuccess,
     fetchUsersError,
-    fetchMoreUsersSuccess,
+    fetchAddUsersSuccess,
 } from './actions';
 
 function* fetchUsersSaga({ payload }: Action<any>): Generator {
@@ -13,7 +13,7 @@ function* fetchUsersSaga({ payload }: Action<any>): Generator {
         const users = (yield call(userApi.fetchUsers)) as User[];
 
         if (payload) {
-            yield put(fetchMoreUsersSuccess(users));
+            yield put(fetchAddUsersSuccess(users));
         } else {
             yield put(fetchUsersSuccess(users));
         }

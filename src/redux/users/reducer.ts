@@ -37,7 +37,7 @@ export const usersReducer = <T extends Reducer>(
                 error: null,
             };
 
-        case Type.FETCH_MORE_USERS_SUCCESS:
+        case Type.FETCH_ADD_USERS_SUCCESS:
             return {
                 ...state,
                 users: [...state.users, ...action.payload],
