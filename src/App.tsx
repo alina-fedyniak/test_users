@@ -9,7 +9,7 @@ import { Spinner } from './components/Spinner';
 import { useDispatch, useSelector } from 'react-redux';
 import { langSelector } from './redux/locale/selectors';
 import { setLocale } from './redux/locale/actions';
-import { RequireAuth } from './PrivateRoute/RequireAuth';
+import { RequireAuth } from "./components/PrivateRoute/RequireAuth";
 
 const UsersPage = lazy(() => import('./pages/UsersPage'));
 

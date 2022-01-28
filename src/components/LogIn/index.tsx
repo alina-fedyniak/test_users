@@ -3,13 +3,11 @@ import styles from './LogIn.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { setLogIn } from '../../redux/auth/actions';
-import { authSelector } from "../../redux/auth/selectors";
 import { fetchUsersRequest } from "../../redux/users/actions";
 import { Translate } from '../../lang';
 
 export const LogIn = () => {
     const dispatch = useDispatch();
-    const isAuth = useSelector(authSelector);
 
     useEffect(() => {
         const auth = localStorage.getItem('auth');
