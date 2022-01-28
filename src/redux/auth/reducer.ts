@@ -31,7 +31,7 @@ export const authReducer = <T extends boolean>(
             return {
                 ...state,
                 isLogin: false,
-                isLoading: true,
+                isLoading: false,
                 error: null,
             };
 
