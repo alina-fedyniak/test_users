@@ -1,5 +1,6 @@
 import { Container } from '../Container';
 import { LOCALES } from '../../lang';
+import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { NavBar } from '../NavBar';
@@ -11,6 +12,14 @@ import styles from './Header.module.scss';
 
 export function Header(): JSX.Element {
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        const lang = localStorage.getItem('locale');
+
+        if (lang) {
+            dispatch(setLocale(lang));
+        }
+    }, [dispatch]);
 
     return (
         <header className={styles.header}>
