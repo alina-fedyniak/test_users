@@ -4,9 +4,9 @@ import { useDispatch } from 'react-redux';
 import { fetchUsersRequest } from '../../redux/users/actions';
 import { usersSelector } from '../../redux/users/selectors';
 import { useSelector } from 'react-redux';
-import { User } from '../../components/User';
 import { Spinner } from '../../components/Spinner';
 import { useSearchParams } from 'react-router-dom';
+import { Link } from '../../components/Link';
 
 function UsersPage(): JSX.Element {
     const dispatch = useDispatch();
@@ -55,7 +55,7 @@ function UsersPage(): JSX.Element {
     return (
         <div className={styles.usersPage}>
             {usersData.map(user => (
-                <User key={user.login.uuid} user={user} />
+                <Link key={user.login.uuid} user={user} />
             ))}
             {fetching && <Spinner />}
         </div>
