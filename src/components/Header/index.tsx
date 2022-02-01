@@ -3,10 +3,9 @@ import { NavLink } from 'react-router-dom';
 import { NavBar } from '../NavBar';
 import { ReactComponent as Logo } from '../../assets/images/logo.svg';
 import styles from './Header.module.scss';
-import { BtnBlock } from '../BtnBlock';
+import { LangBlock } from '../LangBlock';
 
 export function Header(): JSX.Element {
-
     return (
         <header className={styles.header}>
             <Container>
@@ -16,7 +15,7 @@ export function Header(): JSX.Element {
                     </NavLink>
                     <div className={styles.header__infoWrapper}>
                         <div className={styles.header__langBox}>
-                            <BtnBlock />
+                            <LangBlock />
                         </div>
                     </div>
                 </div>
