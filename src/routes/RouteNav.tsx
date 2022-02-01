@@ -8,7 +8,7 @@ import { RequireAuth } from '../routes/RequireAuth';
 
 const UsersPage = lazy(() => import('../pages/UsersPage'));
 
-export const RoutNav = (): JSX.Element => {
+export const RouteNav = (): JSX.Element => {
     return (
         <Suspense fallback={<Spinner />}>
             <Routes>
