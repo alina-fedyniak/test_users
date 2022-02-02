@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styles from './LogOut.module.scss';
 import { useDispatch } from 'react-redux';
 import { setLogOut } from '../../redux/auth/actions';
@@ -8,10 +8,10 @@ import { Translate } from '../../lang';
 export function LogOut(): JSX.Element {
     const dispatch = useDispatch();
 
-    const clickLogOut = () => {
+    const clickLogOut = useCallback(() => {
         dispatch(setLogOut());
         localStorage.clear();
-    };
+    }, [dispatch]);
 
     return (
         <div className={styles.logOut}>

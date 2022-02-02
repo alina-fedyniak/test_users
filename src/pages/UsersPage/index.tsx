@@ -26,7 +26,7 @@ function UsersPage(): JSX.Element {
             setSearchParams(`page=${page}`);
             setFetching(false);
         }
-    }, [fetching, dispatch, searchParams, setSearchParams, usersData.length]);
+    }, [fetching, searchParams, setSearchParams]);
 
     useEffect(() => {
         document.addEventListener('scroll', scrollHandler);
@@ -40,17 +40,11 @@ function UsersPage(): JSX.Element {
             (event.target as Document).documentElement.scrollHeight -
                 ((event.target as Document).documentElement.scrollTop +
                     window.innerHeight) <
-            100
+            1
         ) {
             setFetching(true);
         }
     };
-
-    useEffect(() => {
-        if (usersData.length < 20) {
-            dispatch(fetchUsersRequest());
-        }
-    }, [dispatch]);
 
     return (
         <div className={styles.usersPage}>
