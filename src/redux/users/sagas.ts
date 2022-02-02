@@ -1,5 +1,5 @@
 import { call, put, takeLatest } from '@redux-saga/core/effects';
-import { userApi } from '../../api/userService';
+import { userApi } from '../../api/userService'
 import { User, Action } from '../../interfaces';
 import { FETCH_USERS_REQUEST } from './types';
 import {
@@ -8,9 +8,9 @@ import {
     fetchAddUsersSuccess,
 } from './actions';
 
-function* fetchUsersSaga({ payload }: Action<any>): Generator {
+function* fetchUsersSaga<T extends string>({ payload }: Action<T>): Generator {
     try {
-        const users = (yield call(userApi.fetchUsers)) as User[];
+        const users = (yield call(userApi.fetchUsers, payload)) as User[];
 
         if (payload) {
             yield put(fetchAddUsersSuccess(users));
