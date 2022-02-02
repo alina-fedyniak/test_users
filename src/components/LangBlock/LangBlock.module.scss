@@ -1,0 +1,23 @@
+@import '../../assets/styles/variables';
+
+.langBlock {
+
+    &__langBtn {
+        margin: 0;
+        padding: 0 2px;
+
+        background-color: transparent;
+        cursor: default;
+        border: none;
+    }
+
+    &__langBtn:hover,
+    &__langBtn:focus {
+        box-shadow: none;
+    }
+
+    &__langBtn:hover svg,
+    &__langBtn:focus svg {
+        cursor: pointer;
+    }
+}
