@@ -5,11 +5,10 @@ import styles from '../UserInfoPage/UserInfoPage.module.scss';
 import { Translate } from '../../lang';
 
 export function UserInfoPage(): JSX.Element {
-    const { state } = useLocation();
-    const stateUser = state as UserType;
+    const location = useLocation();
 
-    return stateUser ? (
-        <UserInfo user={state as UserType} />
+    return location ? (
+        <UserInfo user={location.state as UserType} />
     ) : (
         <div className={styles.userInfoPage}>
             {Translate('userNotFound')}
