@@ -22,7 +22,7 @@ export const RouteNav = (): JSX.Element => {
                     }
                 />
                 <Route
-                    path="/user-info"
+                    path="/user-info/:uuid"
                     element={
                         <RequireAuth>
                             <UserInfoPage />
