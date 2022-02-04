@@ -1,5 +1,5 @@
 import styles from './UsersPage.module.scss';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchUsersRequest } from '../../redux/users/actions';
 import { usersSelector } from '../../redux/users/selectors';
@@ -35,16 +35,19 @@ function UsersPage(): JSX.Element {
         };
     }, []);
 
-    const scrollHandler = (event: Event) => {
-        if (
-            (event.target as Document).documentElement.scrollHeight -
-                ((event.target as Document).documentElement.scrollTop +
-                    window.innerHeight) <
-            1
-        ) {
-            setFetching(true);
-        }
-    };
+    const scrollHandler = useCallback(
+        (event: Event) => {
+            if (
+                (event.target as Document).documentElement.scrollHeight -
+                    ((event.target as Document).documentElement.scrollTop +
+                        window.innerHeight) <
+                1
+            ) {
+                setFetching(true);
+            }
+        },
+        [setFetching],
+    );
 
     return (
         <div className={styles.usersPage}>
