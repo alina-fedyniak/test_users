@@ -41,6 +41,7 @@ export const usersReducer = <T extends Reducer>(
             return {
                 ...state,
                 users: [...state.users, ...action.payload],
+                isLoading: false,
                 error: null,
             };
         default:

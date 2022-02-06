@@ -30,6 +30,14 @@ export const RouteNav = (): JSX.Element => {
                     }
                 />
                 <Route
+                    path="/user-info"
+                    element={
+                        <RequireAuth>
+                            <UserInfoPage />
+                        </RequireAuth>
+                    }
+                />
+                <Route
                     path="/log-out"
                     element={
                         <RequireAuth>
